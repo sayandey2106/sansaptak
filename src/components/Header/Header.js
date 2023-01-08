@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React,{useEffect} from 'react';
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import './Header.css'
 
 const navigation = [
@@ -40,10 +40,13 @@ export default function Header() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className='justify-content-center'>
         <Nav className="ms-auto ">
-          <Nav.Link  to="/login" className='text-black text-xl me-2'>Home</Nav.Link>
-          <Nav.Link href="#home" className='text-black text-xl me-2'>About us</Nav.Link>
-          <Nav.Link href="#link" className='text-black text-xl me-2'>Courses</Nav.Link>
-          <Nav.Link href="#link" className='text-black text-xl me-2'>Contact Us</Nav.Link>
+        
+          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/">Home</Link></Nav.Link>
+         
+          {/* <Nav.Link  className='text-black text-xl me-2'>  <Link to="/aboutus">About us</Link></Nav.Link> */}
+          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/courses">Courses</Link></Nav.Link>
+          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/login">Login</Link></Nav.Link>
+          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/contact">Contact Us</Link></Nav.Link>
           
         </Nav>
       </Navbar.Collapse>
