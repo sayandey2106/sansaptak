@@ -15,7 +15,7 @@ function App() {
   }, [])
   
   return (
-    <div className="App bg-gray-200">
+    <div className="App bg-slate-200">
 <BrowserRouter>
 
 <Header/>

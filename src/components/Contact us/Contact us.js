@@ -40,8 +40,8 @@ export default function Contact () {
                   <h1 class="text-xl font-semibold mt-1 mb-12 pb-1">we are <b>Llogical</b></h1>
                 </div> */}
 
-                <form ref={form} onSubmit={sendEmail}>
-                  <h1 class="mb-4 text-xl">Send us your query. We'll resolve it.</h1>
+                <form ref={form} onSubmit={sendEmail} className="p-3">
+                  <h1 class="my-4 text-xl">Send us your query. We'll resolve it.</h1>
                   <div class="mb-4">
                     <input
                       type="text"

@@ -6,18 +6,20 @@ import Footer from '../Footer/Footer';
 import Contact from '../Contact us/Contact us';
 import Courses from '../Courses/Courses';
 import './Hero.css'
+import Landing from './Landing';
 export default function Hero() {
   return (
     <section>
 {/* slider start */}
     <div>
-        <Slider/>
+        {/* <Slider/> */}
     </div>
 {/* slider end */}
 
 {/* hero start */}
     <div>
-      <Container>
+      <Landing/>
+      {/* <Container>
 
       
     <section class="text-gray-600 body-font px-6 card m-16 filter drop-shadow-md md:drop-shadow-xl hero-card">
@@ -37,7 +39,7 @@ export default function Hero() {
     </div>
   </div>
 </section>
-</Container>
+</Container> */}
 
       <Courses/>
       <Contact/>
