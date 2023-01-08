@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React,{useEffect} from 'react';
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import './Header.css'
 
 const navigation = [
@@ -41,12 +41,11 @@ export default function Header() {
       <Navbar.Collapse id="basic-navbar-nav" className='justify-content-center'>
         <Nav className="ms-auto ">
         
-          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/">Home</Link></Nav.Link>
+          <NavLink to="/"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')}>  Home</NavLink>
          
-          {/* <Nav.Link  className='text-black text-xl me-2'>  <Link to="/aboutus">About us</Link></Nav.Link> */}
-          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/courses">Courses</Link></Nav.Link>
-          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/login">Login</Link></Nav.Link>
-          <Nav.Link  className='text-black text-xl me-2'>  <Link to="/contact">Contact Us</Link></Nav.Link>
+          <NavLink to="/courses"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')}>  Courses</NavLink>
+          <NavLink to="/login"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')}>Login</NavLink>
+          <NavLink to="/contact"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')} >Contact Us</NavLink>
           
         </Nav>
       </Navbar.Collapse>

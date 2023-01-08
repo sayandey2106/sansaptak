@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import Modal from 'react-modal';
-
+import { courseData } from '../../data/course';
 const customStyles = {
   content: {
     top: '50%',
@@ -18,60 +18,78 @@ export default function Courses() {
 
   return (
     <div>
-        <section class="text-gray-600 body-font text-center justify-content-center">
-  <div class="container px-5 py-24 text-center justify-content-center ">
-    <div class="row text-center justify-content-center p-4">
-      <div class="col-lg-3 m-3 col-md-6 col-sm-12 card filter drop-shadow-md md:drop-shadow-xl p-4">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260"/>
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-          <p class="mt-1">$16.00</p>
-          <button class="inline-flex text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 py-2 px-6  rounded text-lg" onClick={()=>{
-            setOpen(true);
-          }}>Button</button>
+
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-4xl text-4xl font-medium title-font mb-2 text-gray-900" style={{fontSize:"60px"}}>Our Courses</h1>
+      {/* <div class="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden mt-6">
+        <button class="py-1 px-4 bg-indigo-500 text-white focus:outline-none">Class 10</button>
+        <button class="py-1 px-4 focus:outline-none">Class 12 </button>
+      </div> */}
+    </div>
+
+    <div class="row justify-content-center text-center">
+{
+  courseData.map((data)=>{
+return(
+
+      <div class="p-4 col-lg-3 col-md-6 col-sm-12 bg-white shadow-lg rounded-lg m-3">
+        <div class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden ">
+          <h2 class="text-sm tracking-widest title-font mb-1 font-medium">Prepare for</h2>
+          <h1 class="text-3xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">CLASS {data.class} {data.type}</h1>
+          <p class="flex items-center text-gray-600 mb-2">
+            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+            </span>Online Live Classes
+          </p>
+          <p class="flex items-center text-gray-600 mb-2">
+            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+            </span>Test Series
+          </p>
+          <p class="flex items-center text-gray-600 mb-6">
+            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+            </span>Sample Questions
+          </p>
+          <p class="flex items-center text-gray-600 mb-6">
+            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+            </span>Doubt Clearing
+          </p>
+          <button
+                      type="submit"
+                      class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded"
+               
+                      data-mdb-ripple="true"
+                      data-mdb-ripple-color="light"
+                  onClick={()=>{
+                    setOpen(true)
+                  }}
+                    >
+                  Book a Demo Class
+                    </button>
+          {/* <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p> */}
         </div>
       </div>
-      <div class="col-lg-3 m-3 col-md-6 col-sm-12 card filter drop-shadow-md md:drop-shadow-xl p-4">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/421x261"/>
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-          <p class="mt-1">$21.15</p>
-          <button class="inline-flex text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 py-2 px-6  rounded text-lg">Button</button>
-        </div>
-      </div>
-      <div class="col-lg-3 m-3 col-md-6 col-sm-12 card filter drop-shadow-md md:drop-shadow-xl p-4">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/422x262"/>
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-          <p class="mt-1">$12.00</p>
-          <button class="inline-flex text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 py-2 px-6  rounded text-lg">Button</button>
-        </div>
-      </div>
-      <div class="col-lg-3 m-3 col-md-6 col-sm-12 card filter drop-shadow-md md:drop-shadow-xl p-4">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/423x263"/>
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-          <p class="mt-1">$18.40</p>
-          <button class="inline-flex text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 py-2 px-6  rounded text-lg">Button</button>
-        </div>
-      </div>
-     
+)
+
+  })
+}
+
+
     </div>
   </div>
 </section>
-
 
 {/* modal div */}
 <div>
@@ -98,15 +116,7 @@ export default function Courses() {
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
-                  </p>
-                </div>
+        
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                   <button

@@ -1,32 +1,115 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import Container from 'react-bootstrap/esm/Container'
 
+import emailjs from '@emailjs/browser';
 export default function Contact () {
+
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm("service_hljgrl7","template_17fefup", form.current, "Y84W44yMKqpvMmsF7")
+        .then((result) => {
+            result.text==="OK" ? alert("submitted"):alert("failed")
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+    };
+  
   return (
     <div>
-     
-     <section class="dark:bg-gray-900">
-        <Container>
-  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md card filter drop-shadow-md md:drop-shadow-xl">
-      <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
-      <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.</p>
-      <form action="#" class="space-y-8">
-          <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-              <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required/>
+        <h1 class="sm:text-4xl text-4xl font-medium title-font mb-2 text-gray-900 text-center" style={{fontSize:"60px", marginTop:"30px"}}>Contact Us</h1>
+   <section class="h-full gradient-form  md:h-screen">
+  <div class="container py-12 px-6 h-full">
+    <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+      <div class="xl:w-10/12">
+        <div class="block bg-white shadow-lg rounded-lg">
+          <div class="lg:flex lg:flex-wrap g-0">
+            <div class="lg:w-6/12 px-4 md:px-0">
+              <div class="md:p-12 md:mx-6">
+                
+                {/* <div class="text-center">
+                  <img
+                    class="mx-auto w-48"
+                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                    alt="logo"
+                  />
+                  <h1 class="text-xl font-semibold mt-1 mb-12 pb-1">we are <b>Llogical</b></h1>
+                </div> */}
+
+                <form ref={form} onSubmit={sendEmail}>
+                  <h1 class="mb-4 text-xl">Send us your query. We'll resolve it.</h1>
+                  <div class="mb-4">
+                    <input
+                      type="text"
+                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      id="exampleFormControlInput1"
+                      placeholder="Name"
+                      name="name"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <input
+                      type="email"
+                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      id="exampleFormControlInput1"
+                      placeholder="Email"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <textarea
+                      type="password"
+                      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      id="exampleFormControlInput1"
+                      placeholder="Message"
+                      name="message"
+                      cols="200"
+                      style={{height:"200px"}}
+                    
+                    />
+                  </div>
+                  <div class="text-center pt-1 mb-12 pb-1">
+                    <button
+                      type="submit"
+                      class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded"
+               
+                      data-mdb-ripple="true"
+                      data-mdb-ripple-color="light"
+                  
+                    >
+                   Submit
+                    </button>
+                   
+                   
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+            <div
+              class="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
+           
+            >
+              <div class="text-black px-4 py-6 md:p-12 md:mx-6">
+                
+                <img
+          src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2F3969587.jpg?alt=media&token=8738cfe1-9e62-4bc1-842e-661d48053578"
+          class="w-full"
+          alt="Phone image"
+        />
+              </div>
+            </div>
           </div>
-          <div>
-              <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-              <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required/>
-          </div>
-          <div class="sm:col-span-2">
-              <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-              <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
-          </div>
-          <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
-      </form>
+        </div>
+      </div>
+    </div>
   </div>
-  </Container>
 </section>
     </div>
   )
