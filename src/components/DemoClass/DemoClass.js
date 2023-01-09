@@ -100,6 +100,9 @@ export default function DemoClass() {
               </div>
             </div>
             <div>
+            <label htmlFor="password" className="mt-1">
+            Select Course
+                </label>
             <select class="form-select appearance-none
             block
       w-full
@@ -128,6 +131,9 @@ export default function DemoClass() {
     </select>
             </div>
             <div>
+            <label htmlFor="password" className="mt-1">
+            Select Board
+                </label>
             <select class="form-select appearance-none
       block
       w-full
@@ -143,7 +149,7 @@ export default function DemoClass() {
       ease-in-out
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" required>
-        <option selected value="0">Select Board</option>
+        {/* <option selected value="0">Select Board</option> */}
         <option value="CBSE">CBSE</option>
         <option value="ICSE">ICSE</option>
         <option value="ICSE">ISE</option>
@@ -151,6 +157,19 @@ export default function DemoClass() {
         <option value="WBCHSE">WBBSE</option>
         <option value="OTHERS">OTHERS</option>
     </select>
+    <div>
+                <label htmlFor="password" className="mt-3">
+                 Preferable Class Time
+                </label>
+                <input
+                
+                  type="time"
+                  autoComplete="current-password"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Preferable Class Time" 
+                />
+              </div>
             </div>
          
 

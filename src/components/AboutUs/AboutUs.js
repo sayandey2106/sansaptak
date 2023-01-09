@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function AboutUs() {
   return (
@@ -17,8 +18,14 @@ Our vision is to create a world where education is highly personalized and tailo
 
 We are dedicated to constantly improving and updating our platform to ensure that our users have the best learning experience possible. We are excited to be a part of the edtech community and to be at the forefront of educational innovation. Thank you for choosing us as your partner in learning!</p>
       <div class="flex justify-center">
-        {/* <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Button</button> */}
+        <NavLink to="/courses">
+
+        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Our Courses</button>
+        </NavLink>
+        <NavLink to="/contact">
+
+        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Contact us</button>
+        </NavLink>
       </div>
     </div>
   </div>

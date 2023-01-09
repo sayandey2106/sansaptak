@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import Modal from 'react-modal';
+import { NavLink } from 'react-router-dom';
 import { courseData } from '../../data/course';
 import Slider from '../Hero/Slider';
 const customStyles = {
@@ -193,18 +194,21 @@ return(
               </svg>
             </span>Doubt Clearing
           </p>
+          <NavLink to="/demo">
+            
           <button
                       type="submit"
                       class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded"
-               
+                      
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
-                  onClick={()=>{
-                    setOpen(true)
-                  }}
-                    >
+                      onClick={()=>{
+                        setOpen(true)
+                      }}
+                      >
                   Book a Demo Class
                     </button>
+                      </NavLink>
           {/* <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p> */}
         </div>
       </div>

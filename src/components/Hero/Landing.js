@@ -28,9 +28,9 @@ export default function Landing() {
               <div class="mt-5 sm:mt-8 sm:flex justify-center">
                
                 <div class="mt-3 sm:mt-0 sm:ml-3">
-                <NavLink>
+                <NavLink to="/demo">
                 <button 
-                type="submit"
+               
                 class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded"
                 
                 data-mdb-ripple="true"
