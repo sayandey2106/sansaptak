@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import Courses from './components/Courses/Courses';
 import Contact from './components/Contact us/Contact us';
 import Footer from './components/Footer/Footer';
+import DemoClass from './components/DemoClass/DemoClass';
+import AboutUs from './components/AboutUs/AboutUs';
 // import Routes from './components/router';
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
     <Route exact path="/login" element={<Login />}/>
     <Route exact path="/courses" element={<Courses />}/>
     <Route exact path="/contact" element={<Contact />}/>      
+    <Route exact path="/demo" element={<DemoClass />}/>  
+    <Route exact path="/aboutus" element={<AboutUs />}/> 
       </Routes>
     </BrowserRouter>
 

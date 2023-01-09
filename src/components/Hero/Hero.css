@@ -4,10 +4,15 @@
     max-width: 100%;
     height: auto;
 }
+.img{
+    background: url("https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/Course%2Fimages%20(4)%20(6).jpeg?alt=media&token=9e1d6f8d-d5bb-4b72-99c4-ed8891984230") no-repeat;
+    /* background-position: cover; */
+    background-size: cover;
+}
 
 .HeroSlider-module_Wrapper__TaeBr {
     max-width: 100%;
-    height: 70vh !important;
+    height: 90vh !important;
     position: relative;
     overflow: hidden;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -15,18 +20,18 @@
 }
 @media screen and (max-width:1000px) {
     .HeroSlider-module_Wrapper__TaeBr{
-        height: 20vh !important;
+        height: 40vh !important;
     }
 }
 
 @media screen and (max-width:700px) {
     .HeroSlider-module_Wrapper__TaeBr{
-        height: 20vh !important;
+        height: 40vh !important;
     }
 }
 @media screen and (max-width:520px) {
     .HeroSlider-module_Wrapper__TaeBr{
-        height: 20vh !important;
+        height: 40vh !important;
     }
     .hero-card{
         padding-left: 0.5rem !important;
@@ -37,6 +42,6 @@
 }
 @media screen and (max-width:400px) {
     .HeroSlider-module_Wrapper__TaeBr{
-        height: 20vh !important;
+        height: 40vh !important;
     }
 }

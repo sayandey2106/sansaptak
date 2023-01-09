@@ -2,19 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import {Link, NavLink} from 'react-router-dom'
 import './Header.css'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Courses', href: '/courses', current: false },
-  { name: 'Contact Us', href: '/contact', current: false },
-  // { name: 'Calendar', href: '#', current: false },
-]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -25,40 +20,18 @@ function classNames(...classes) {
 
 export default function Header() {
 
-  // useEffect(() => {
-  //   sessionStorage.setItem('isHome',true)
-  // }, [])
+
+  const [current, setCurrent]=useState("Home")
+  const navigation = [
+    { name: 'Home', href: '/', current:current==="Home"?true: false  },
+    { name: 'About Us', href: '/aboutus', current: current==="About Us"?true: false  },
+    { name: 'Courses', href: '/courses', current: current==="Courses"?true: false  },
+    { name: 'Contact Us', href: '/contact', current: current==="Contact Us"?true: false  },
+    // { name: 'Calendar', href: '#', current: false },
+  ]
   return (
     
-  //   <Navbar sticky  expand="lg" className='bg-white sticky-top filter drop-shadow-md md:drop-shadow-xl '>
-  //   <Container>
-  //     <Navbar.Brand href="#home" className='font-bold text-white text-2xl d-flex'>
-  //     <img
-  //             src='https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.webp'
-  //             height='20'
-  //             width="55"
-  //             alt=''
-  //             loading='lazy'
-  //             className='me-2 '
-  //           /><h1
-  //           class="font-extrabold text-transparent text-2xl bg-clip-text bg-gradient-to-r from-purple-800 to-blue-800 mx-4" 
-  //         >
-  //           SANSAPTAK
-  //         </h1></Navbar.Brand>
-  //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  //     <Navbar.Collapse id="basic-navbar-nav" className='justify-content-center'>
-  //       <Nav className="ms-auto ">
-        
-  //         <NavLink to="/"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')}>  Home</NavLink>
-         
-  //         <NavLink to="/courses"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')}>  Courses</NavLink>
-  //         <NavLink to="/login"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')}>Login</NavLink>
-  //         <NavLink to="/contact"  className={({ isActive }) => (isActive ? 'active text-black text-xl me-4' : 'inactive text-black text-xl me-4')} >Contact Us</NavLink>
-          
-  //       </Nav>
-  //     </Navbar.Collapse>
-  //   </Container>
-  // </Navbar>
+
 
   <Disclosure as="nav" className="bg-gray-800">
   {({ open }) => (
@@ -99,6 +72,9 @@ export default function Header() {
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'px-3 py-2 rounded-md text-sm font-medium'
                     )}
+                    onClick={()=>{
+                      setCurrent(item.name)
+                    }}
                     aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}

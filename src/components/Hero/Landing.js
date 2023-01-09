@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import "./Hero.css"
 import { NavLink } from 'react-router-dom'
 
 export default function Landing() {
@@ -13,11 +13,11 @@ export default function Landing() {
 
 
 
-    <div class="relative h-screen w-full flex items-center justify-start text-left bg-cover bg-center" style={{backgroundImage:"url(https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)"}}>
+    <div class="relative img h-screen w-full flex items-center justify-center text-left bg-cover bg-center mb-16" style={{backgroundImage:"url(https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/Course%2Fimages%20(4)%20(6).jpeg?alt=media&token=9e1d6f8d-d5bb-4b72-99c4-ed8891984230) no-repeat"}}>
       <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"></div>
       
-      <main class="px-10 lg:px-24 z-10">
-            <div class="text-left">
+      <main class="px-10 lg:px-24 z-10 text-center">
+            <div class="text-center">
               <h2 class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-indigo-600 sm:leading-none md:text-6xl">
               Welcome To <span>   </span>
                 <span class="text-white">LLOGICAL</span>
@@ -25,7 +25,7 @@ export default function Landing() {
               <p class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light">
                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
               </p>
-              <div class="mt-5 sm:mt-8 sm:flex justify-start">
+              <div class="mt-5 sm:mt-8 sm:flex justify-center">
                
                 <div class="mt-3 sm:mt-0 sm:ml-3">
                 <NavLink>

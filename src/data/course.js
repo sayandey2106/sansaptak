@@ -35,5 +35,29 @@ export const courseData=[
         class:"12",
         type:"JEE"
     },
+    {
+        id:7,
+        name:"PREPARE FOR WBJEE",
+        class:"12",
+        type:"WBJEE"
+    },
+    {
+        id:8,
+        name:"PREPARE FOR WBJEE",
+        class:"11",
+        type:"WBJEE"
+    },
+    {
+        id:9,
+        name:"PREPARE FOR NEET",
+        class:"11",
+        type:"NEET"
+    },
+    {
+        id:10,
+        name:"PREPARE FOR NEET",
+        class:"12",
+        type:"NEET"
+    },
 
 ]

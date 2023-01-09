@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import Modal from 'react-modal';
 import { courseData } from '../../data/course';
+import Slider from '../Hero/Slider';
 const customStyles = {
   content: {
     top: '50%',
@@ -15,12 +16,24 @@ const customStyles = {
 export default function Courses() {
 
     const [open, setOpen]= useState(false);
+    const [item, setItem]=useState(courseData)
+  const [toggle, setToggle]= useState();
+  const toggleTab=(i)=>{
+    setToggle(i)
+  }
+    const filterCourse =(type)=>{
+      const updated = courseData.filter((curr)=>{
+        return curr.type===type || curr.class===type
+      })
+      setItem(updated);
+    }
 
   return (
     <div>
+<Slider/>
 
 <section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-24 mx-auto">
+  <div class="container px-5 py-16 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="sm:text-4xl text-4xl font-medium title-font mb-2 text-gray-900" style={{fontSize:"60px"}}>Our Courses</h1>
       {/* <div class="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden mt-6">
@@ -28,10 +41,124 @@ export default function Courses() {
         <button class="py-1 px-4 focus:outline-none">Class 12 </button>
       </div> */}
     </div>
+    <div class="flex items-center justify-center m-3">
+  <div class="inline-flex  focus:shadow-lg m-4" role="group">
+    <button type="button" class="rounded-l m-1    rounded-r
+        px-6
+        py-2
+        border-2 border-blue-600
+        text-blue-600
+        font-medium
+        text-xs
+        bg-white
+        leading-tight
+        uppercase
+        hover:bg-black hover:bg-opacity-5
+        focus:outline-none focus:ring-0
+        transition
+        duration-150
+        ease-in-out
+      "
+      onClick={()=>{
+        filterCourse("BOARD")
+        toggleTab(1)
+      }}
+      
+      
+      >BOARD</button>
+    <button type="button" class="    rounded-r
+        px-6
+        py-2
+        border-2 border-blue-600
+        bg-white
+        text-blue-600
+        font-medium
+        text-xs
+        leading-tight
+        uppercase
+        hover:bg-black hover:bg-opacity-5
+        focus:outline-none focus:ring-0
+        transition
+        duration-150
+        ease-in-out
+      m-1"
+      onClick={()=>{
+        filterCourse("WBJEE")
+        toggleTab(2)
+      }}>WBJEE</button>
+    <button type="button" class=" rounded-r m-1    rounded-r
+        px-6
+        py-2
+        border-2 border-blue-600
+        text-blue-600
+        bg-white
+        font-medium
+        text-xs
+        leading-tight
+        uppercase
+        hover:bg-black hover:bg-opacity-5
+        focus:outline-none focus:ring-0
+        transition
+        duration-150
+        ease-in-out
+      "
+      onClick={()=>{
+        filterCourse("JEE")
+        toggleTab(3)
+      }}>JEE MAINS</button>
+    <button type="button" class=" rounded-r m-1    rounded-r
+        px-6
+        py-2
+        border-2 border-blue-600
+        text-blue-600
+        font-medium
+        bg-white
+        text-xs
+        leading-tight
+        uppercase
+        hover:bg-black hover:bg-opacity-5
+        focus:outline-none focus:ring-0
+        transition
+        duration-150
+        ease-in-out
+      "onClick={()=>{
+        filterCourse("NEET")
+        toggleTab(4)
+      }}>NEET</button>
+  </div>
+  </div>
+  <div class="flex items-center justify-center m-3">
+  <div class="inline-flex  focus:shadow-lg" role="group">
+    <button type="button" class="rounded-l m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"onClick={()=>{
+        filterCourse("9")
+        toggleTab(5)
+      }}>CLASS 9</button>
+    <button type="button" class=" inline-block m-1 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out" onClick={()=>{
+        filterCourse("10")
+        toggleTab(6)
+      }}>CLASS 10</button>
+    <button type="button" class=" rounded-r m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out" onClick={()=>{
+        filterCourse("11")
+        toggleTab(7)
+      }}>CLASS 11</button>
+    <button type="button" class=" rounded-r m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out" onClick={()=>{
+        filterCourse("12")
+        toggleTab(8)
+      }}>CLASS 12</button>
+  </div>
+  </div>
+  <div class="flex items-center justify-center my-3">
+  <div class="inline-flex  focus:shadow-lg" role="group">
+    <button type="button" class="rounded-l m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out "onClick={()=>{
+        setItem(courseData)
+        toggleTab(9)
+      }}>ALL COURSES</button>
+   </div>
+  </div>
 
     <div class="row justify-content-center text-center">
 {
-  courseData.map((data)=>{
+  item.map((data)=>{
 return(
 
       <div class="p-4 col-lg-3 col-md-6 col-sm-12 bg-white shadow-lg rounded-lg m-3">
