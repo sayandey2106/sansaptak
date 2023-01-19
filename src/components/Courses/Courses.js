@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { NavLink } from 'react-router-dom';
 import { courseData } from '../../data/course';
 import Slider from '../Hero/Slider';
+import '../AboutUs/AboutUs.css'
 const customStyles = {
   content: {
     top: '50%',
@@ -18,7 +19,7 @@ export default function Courses() {
 
     const [open, setOpen]= useState(false);
     const [item, setItem]=useState(courseData)
-  const [toggle, setToggle]= useState();
+  const [toggle, setToggle]= useState(9);
   const toggleTab=(i)=>{
     setToggle(i)
   }
@@ -31,7 +32,7 @@ export default function Courses() {
 
   return (
     <div>
-<Slider/>
+{/* <Slider/> */}
 
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-16 mx-auto">
@@ -42,176 +43,154 @@ export default function Courses() {
         <button class="py-1 px-4 focus:outline-none">Class 12 </button>
       </div> */}
     </div>
+    <div class="flex items-center justify-center my-3">
+  <div class="inline-flex  focus:shadow-lg" role="group">
+  <button type="button" className={toggle===9?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xl  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+   
+      onClick={()=>{
+        setItem(courseData)
+        setToggle(9)
+      }}
+      
+      
+      >ALL COURSES</button>
+   </div>
+  </div>
     <div class="flex items-center justify-center m-3">
-  <div class="inline-flex  focus:shadow-lg m-4" role="group">
-    <button type="button" class="rounded-l m-1    rounded-r
-        px-6
-        py-2
-        border-2 border-blue-600
-        text-blue-600
-        font-medium
-        text-xs
-        bg-white
-        leading-tight
-        uppercase
-        hover:bg-black hover:bg-opacity-5
-        focus:outline-none focus:ring-0
-        transition
-        duration-150
-        ease-in-out
-      "
+  <div class="inline-flex  focus:shadow-lg " role="group">
+    <button type="button" className={toggle===1?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+   
       onClick={()=>{
         filterCourse("BOARD")
-        toggleTab(1)
+        setToggle(1)
       }}
       
       
       >BOARD</button>
-    <button type="button" class="    rounded-r
-        px-6
-        py-2
-        border-2 border-blue-600
-        bg-white
-        text-blue-600
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-black hover:bg-opacity-5
-        focus:outline-none focus:ring-0
-        transition
-        duration-150
-        ease-in-out
-      m-1"
+    <button type="button" className={toggle===2?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+
+       
       onClick={()=>{
         filterCourse("WBJEE")
         toggleTab(2)
       }}>WBJEE</button>
-    <button type="button" class=" rounded-r m-1    rounded-r
-        px-6
-        py-2
-        border-2 border-blue-600
-        text-blue-600
-        bg-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-black hover:bg-opacity-5
-        focus:outline-none focus:ring-0
-        transition
-        duration-150
-        ease-in-out
-      "
+    <button type="button"  className={toggle===3?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
       onClick={()=>{
         filterCourse("JEE")
         toggleTab(3)
       }}>JEE MAINS</button>
-    <button type="button" class=" rounded-r m-1    rounded-r
-        px-6
-        py-2
-        border-2 border-blue-600
-        text-blue-600
-        font-medium
-        bg-white
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-black hover:bg-opacity-5
-        focus:outline-none focus:ring-0
-        transition
-        duration-150
-        ease-in-out
-      "onClick={()=>{
+    <button type="button"  className={toggle===4?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+      onClick={()=>{
         filterCourse("NEET")
         toggleTab(4)
       }}>NEET</button>
   </div>
   </div>
-  <div class="flex items-center justify-center m-3">
-  <div class="inline-flex  focus:shadow-lg" role="group">
-    <button type="button" class="rounded-l m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out"onClick={()=>{
-        filterCourse("9")
-        toggleTab(5)
-      }}>CLASS 9</button>
-    <button type="button" class=" inline-block m-1 px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out" onClick={()=>{
-        filterCourse("10")
+  <div class="flex items-center justify-center m-1">
+  <div class="inline-flex  focus:shadow-lg " role="group">
+    <button type="button" className={toggle===5?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+   
+      onClick={()=>{
+        filterCourse("BOARD")
+        setToggle(5)
+      }}
+      
+      
+      >Class 9</button>
+    <button type="button" className={toggle===6?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+
+       
+      onClick={()=>{
+        filterCourse("WBJEE")
         toggleTab(6)
-      }}>CLASS 10</button>
-    <button type="button" class=" rounded-r m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out" onClick={()=>{
-        filterCourse("11")
+      }}>Class 10</button>
+    <button type="button"  className={toggle===7?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+      onClick={()=>{
+        filterCourse("JEE")
         toggleTab(7)
-      }}>CLASS 11</button>
-    <button type="button" class=" rounded-r m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out" onClick={()=>{
-        filterCourse("12")
+      }}>Class 11</button>
+    <button type="button"  className={toggle===8?"  rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out active-tab"
+    : "rounded-l m-1  rounded-r px-6 py-2 text-black font-medium  text-xs  bg-white leading-tight uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"}
+      onClick={()=>{
+        filterCourse("NEET")
         toggleTab(8)
-      }}>CLASS 12</button>
+      }}>Class 12</button>
   </div>
   </div>
-  <div class="flex items-center justify-center my-3">
-  <div class="inline-flex  focus:shadow-lg" role="group">
-    <button type="button" class="rounded-l m-1 inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out "onClick={()=>{
-        setItem(courseData)
-        toggleTab(9)
-      }}>ALL COURSES</button>
-   </div>
-  </div>
+
 
     <div class="row justify-content-center text-center">
 {
   item.map((data)=>{
 return(
 
-      <div class="p-4 col-lg-3 col-md-6 col-sm-12 bg-white shadow-lg rounded-lg m-3">
-        <div class="h-full p-6 rounded-lg border-2 border-indigo-500 flex flex-col relative overflow-hidden ">
-          <h2 class="text-sm tracking-widest title-font mb-1 font-medium">Prepare for</h2>
-          <h1 class="text-3xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none">CLASS {data.class} {data.type}</h1>
-          <p class="flex items-center text-gray-600 mb-2">
-            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+   
+
+      <div class="col-lg-3 col-md-6 col-sm-12 ">
+                            <div class="our_solution_category m-4 rounded-l">
+                                <div class="solution_cards_box rounded-l">
+                                <div class="solution_card rounded">
+                                    <div class="hover_color_bubble"></div>
+                                    {/* <div class="so_top_icon">
+                                  sdfds
+                                    </div> */}
+                                    <div class="solu_title">
+                                    <h3>CLASS {data.class} {data.type}</h3>
+                                    </div>
+                                    <div class="solu_description text-center px-6 py-3">
+                                    <p class="flex items-center text-gray-600 mb-6">
+           <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                 <path d="M20 6L9 17l-5-5"></path>
-              </svg>
-            </span>Online Live Classes
-          </p>
-          <p class="flex items-center text-gray-600 mb-2">
-            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
-                <path d="M20 6L9 17l-5-5"></path>
-              </svg>
-            </span>Test Series
-          </p>
-          <p class="flex items-center text-gray-600 mb-6">
-            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
-                <path d="M20 6L9 17l-5-5"></path>
-              </svg>
+             </svg>
             </span>Sample Questions
-          </p>
-          <p class="flex items-center text-gray-600 mb-6">
-            <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+         </p>
+         <p class="flex items-center text-gray-600 mb-6">
+           <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                 <path d="M20 6L9 17l-5-5"></path>
-              </svg>
+             </svg>
             </span>Doubt Clearing
-          </p>
-          <NavLink to="/demo">
-            
-          <button
-                      type="submit"
-                      class="inline-block px-6 py-2.5 text-white font-medium text-s leading-tight uppercase rounded shadow-md text-white bg-gradient-to-r from-blue-400 to-blue-800 hover:from-pink-500 hover:to-yellow-500  border-0 transition duration-150 ease-in-out w-full mb-3 rounded"
-                      
-                      data-mdb-ripple="true"
-                      data-mdb-ripple-color="light"
-                      onClick={()=>{
-                        setOpen(true)
-                      }}
-                      >
+         </p>
+         <p class="flex items-center text-gray-600 mb-6">
+           <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
+                <path d="M20 6L9 17l-5-5"></path>
+             </svg>
+            </span>Online Live Classes
+         </p>
+                                    {/* <button type="button" class="read_more_btn">Read More</button> */}
+                                    </div>
+                                    <NavLink to="/demo">
+                                    <button 
+               
+                class="btn bg-black text-white" width="60px"
+                
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light"
+                >
+                
                   Book a Demo Class
-                    </button>
-                      </NavLink>
-          {/* <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p> */}
-        </div>
-      </div>
+                        </button>
+                        </NavLink>
+                                </div>
+
+                        
+                                
+                            
+                                
+                            
+                            </div>
+                            </div>
+                        </div>
 )
 
   })

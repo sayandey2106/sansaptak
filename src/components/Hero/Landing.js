@@ -4,7 +4,8 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import "./Hero.css"
 import { NavLink } from 'react-router-dom'
-
+import Typewriter from 'typewriter-effect';
+import swal from 'sweetalert';
 export default function Landing() {
  
 
@@ -20,11 +21,19 @@ export default function Landing() {
             <div class="text-center">
               <h2 class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-indigo-600 sm:leading-none md:text-6xl">
               Welcome To <span>   </span>
-                <span class="text-white">LLOGICAL</span>
+                <span class="text-white">LLOGICAL
+     
+                </span>
               </h2>
-              <p class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
-              </p>
+              <h2 class="text-2xl tracking-tight leading-10 font-extrabold sm:text-3xl text-white sm:leading-none md:text-4xl ">
+              <Typewriter 
+  options={{
+    strings: ['Learn Logical', 'Think Logical'],
+    autoStart: true,
+    loop: true,
+  }}
+/>
+              </h2>
               <div class="mt-5 sm:mt-8 sm:flex justify-center">
                
                 <div class="mt-3 sm:mt-0 sm:ml-3">
@@ -35,6 +44,7 @@ export default function Landing() {
                 
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
+           
                 >
                 
                   Book a Demo Class

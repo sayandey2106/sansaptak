@@ -51,16 +51,22 @@ export default function Header() {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img
-                className="block h-8 w-auto lg:hidden"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+              {/* <img
+                className="block h-8  lg:hidden"
+                src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2FFB_IMG_1674130454403.jpg?alt=media&token=ce95125b-e8ee-4508-b1ab-f21d41352c67"
                 alt="Your Company"
-              />
+                width="70px"
+                height="70px" 
+              /> */}
+              <h4 className='text-2xl tracking-tight leading-10 font-extrabold sm:text-2xl text-white sm:leading-none md:text-2xl block h-8  lg:hidden '>
+                LLOGICAL
+              </h4>
               <img
-                className="hidden h-8 w-auto lg:block"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                className="hidden h-8  lg:block"
+                src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2FFB_IMG_1674130454403.jpg?alt=media&token=ce95125b-e8ee-4508-b1ab-f21d41352c67"
                 alt="Your Company"
-              />
+                width="50px"
+                height="150px"              />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -84,13 +90,13 @@ export default function Header() {
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <button
+            {/* <button
               type="button"
               className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
             >
               <span className="sr-only">View notifications</span>
               <BellIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
+            </button> */}
 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">

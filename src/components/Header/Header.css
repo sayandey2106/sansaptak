@@ -9,3 +9,11 @@
 .active{
     /* color:blue; */
 }
+@media (max-width: 1200px){
+
+    .h-screen{
+
+        height: 60vh!important;
+    }
+  
+}

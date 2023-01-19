@@ -1,13 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import "./AboutUs.css"
 export default function AboutUs() {
   return (
-    <div>
-         <section class="text-gray-600 body-font bg-white">
-  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+    <div class="container " height="100vh">
+     
+
+          <section class="text-gray-600 body-font ">
+  <div class="container mx-auto flex px-4 py-16 items-center justify-center flex-col">
   <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">All About <b>LLOGICAL</b></h1>
-    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2FStudents%20watching%20webinar%20on%20computer.jpg?alt=media&token=2cd34a54-a18e-4444-8558-b35d923bf540"/>
+    <img class="lg:w-1/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://firebasestorage.googleapis.com/v0/b/sansaptak-b8665.appspot.com/o/vector%20images%2FFB_IMG_1674130454403.jpg?alt=media&token=ce95125b-e8ee-4508-b1ab-f21d41352c67"/>
     <div class="text-center lg:w-2/3 w-full">
       
       <p class="mb-8 leading-relaxed">Welcome to our edtech startup! We are passionate about using technology to revolutionize education and make it more accessible and effective for everyone.
@@ -29,7 +31,10 @@ We are dedicated to constantly improving and updating our platform to ensure tha
       </div>
     </div>
   </div>
-</section>
-    </div>
+</section> 
+</div>
+
+
+
   )
 }

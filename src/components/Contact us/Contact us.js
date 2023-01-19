@@ -1,6 +1,6 @@
 import React,{useRef} from 'react'
 import Container from 'react-bootstrap/esm/Container'
-
+import swal from "sweetalert";
 import emailjs from '@emailjs/browser';
 export default function Contact () {
 
@@ -10,9 +10,9 @@ export default function Contact () {
     const sendEmail = (e) => {
       e.preventDefault();
   
-      emailjs.sendForm("service_hljgrl7","template_17fefup", form.current, "Y84W44yMKqpvMmsF7")
+      emailjs.sendForm("service_d1bl3tc","template_17fefup", form.current, "Y84W44yMKqpvMmsF7")
         .then((result) => {
-            result.text==="OK" ? alert("submitted"):alert("failed")
+            result.text==="OK"? swal({title:"Submitted!",text:"Thanks for your feedback",icon:"success",button:"Ok!" }) :swal({title:"Failed!",text:"Please retry again!",icon:"error",button:"Retry" })
             console.log(result.text);
         }, (error) => {
             console.log(error.text);

@@ -1,17 +1,35 @@
-import React from 'react'
+import React,{useRef, useState} from 'react'
 import Container from 'react-bootstrap/esm/Container'
-
+import { submitForm } from '../../action/form'
+import { createLink } from './zoomLink'
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import { courseData } from '../../data/course'
+import emailjs from '@emailjs/browser';
+import dayjs from 'dayjs';
+import TextField from '@mui/material/TextField';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import swal from 'sweetalert';
 export default function DemoClass() {
+  const [value, setValue] = React.useState(dayjs('2022-04-07'));
+  const submitForm =()=>{
+    emailjs.sendForm("service_d1bl3tc","template_u3dkfg9", form.current, "Y84W44yMKqpvMmsF7")
+    .then((result) => {
+        result.text==="OK" ? swal({title:"Submitted!",text:"Requested trial class successfully!",icon:"success",button:"Ok!" }) :swal({title:"Failed!",text:"Please retry again!",icon:"error",button:"Retry" })
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
+  }
+
+  const form = useRef();
   return (
     <div>
-        <Container>
-            <div className='row'>
-          
-                    
-                <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md space-y-8">
+        <Container className=''>
+        <div className='row'>
+          <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-md space-y-8 bg-white p-5 rounded-md">
           <div>
             <img
               className="mx-auto h-12 w-auto"
@@ -28,9 +46,26 @@ export default function DemoClass() {
               </a>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form ref={form} className="mt-8 space-y-6" onSubmit={(e)=>{
+            e.preventDefault()
+            submitForm()
+          }}>
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
+            <div>
+            <label htmlFor="email-address" className="sr-only">
+                 Name
+                </label>
+                <input
+                  id="email-address"
+                  name="name"
+                  type="text"
+                  autoComplete="email"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Name" 
+                />
+              </div>
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
@@ -50,7 +85,7 @@ export default function DemoClass() {
                   Class
                 </label>
                 <input
-      
+                  name="class"
                   type="text"
                   autoComplete="current-password"
                   required
@@ -63,8 +98,8 @@ export default function DemoClass() {
                 Mobile No
                 </label>
                 <input
-        
-                  type="text"
+                  name="mobile"
+                  type="number"
                   autoComplete="current-password"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
@@ -76,7 +111,7 @@ export default function DemoClass() {
                   Schhol Name
                 </label>
                 <input
-                
+                name="school"
                   type="text"
                   autoComplete="current-password"
                   required
@@ -89,7 +124,7 @@ export default function DemoClass() {
                   Address
                 </label>
                 <input
-               
+               name="address"
                   type="text"
                   autoComplete="current-password"
                   required
@@ -100,7 +135,7 @@ export default function DemoClass() {
               </div>
             </div>
             <div>
-            <label htmlFor="password" className="mt-1">
+            <label htmlFor="password" className="mt-1 text-black">
             Select Course
                 </label>
             <select class="form-select appearance-none
@@ -118,6 +153,7 @@ export default function DemoClass() {
       ease-in-out
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example"
+      name="course"
       required>
         <option selected>Open this select menu</option>
       {
@@ -131,7 +167,7 @@ export default function DemoClass() {
     </select>
             </div>
             <div>
-            <label htmlFor="password" className="mt-1">
+            <label htmlFor="password" className=" text-black">
             Select Board
                 </label>
             <select class="form-select appearance-none
@@ -148,7 +184,9 @@ export default function DemoClass() {
       transition
       ease-in-out
       m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example" required>
+      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example"
+      name="board"
+      required>
         {/* <option selected value="0">Select Board</option> */}
         <option value="CBSE">CBSE</option>
         <option value="ICSE">ICSE</option>
@@ -157,38 +195,51 @@ export default function DemoClass() {
         <option value="WBCHSE">WBBSE</option>
         <option value="OTHERS">OTHERS</option>
     </select>
-    <div>
-                <label htmlFor="password" className="mt-3">
-                 Preferable Class Time
-                </label>
-                <input
-                
-                  type="time"
-                  autoComplete="current-password"
-                  required
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Preferable Class Time" 
-                />
-              </div>
+    
             </div>
          
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-               
-             
-              </div>
-              <div className="flex items-center justify-between">
-            
+              <label htmlFor="password" className=" text-black">
+            Select Date & Time
+                </label>
+          
+           
+      
+ <div className='mt-1'>
+                <input
+                  id="email-address"
+                  name="date"
+                  type="date"
+                  autoComplete="email"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Name" 
+                />
               </div>
 
+              <div>
+            <label htmlFor="email-address" className="sr-only">
+                 Time
+                </label>
+                <input
+                  id="email-address"
+                  name="time"
+                  type="time"
+                  autoComplete="email"
+                  required
+                  className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Name" 
+                />
+              </div>
+          
             
-            </div>
+          
 
             <div>
               <button
                 type="submit"
                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                
               >
                
                 Submit
